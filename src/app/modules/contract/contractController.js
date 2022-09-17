@@ -1,6 +1,6 @@
 const { getContractByIdUseCase } = require('./useCases/getContractById');
 const {
-  listUnterminatedContractToProfile,
+  listUnterminatedContractsToProfileUseCase,
 } = require('./useCases/listUnterminatedContractToProfile');
 
 const getContractById = async (req, res) => {
@@ -16,7 +16,7 @@ const getContractById = async (req, res) => {
 const listUnterminatedContractsToProfile = async (req, res) => {
   const { id: profileId } = req.profile;
 
-  const contracts = await listUnterminatedContractToProfile(profileId);
+  const contracts = await listUnterminatedContractsToProfileUseCase(profileId);
 
   return res.json(contracts);
 };
