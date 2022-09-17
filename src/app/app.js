@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { default: helmet } = require('helmet');
-const { sequelize } = require('./config/database');
-const { contractRouter } = require('./routes/contracts');
+const { router } = require('./routes');
 
 class App {
   constructor() {
@@ -14,13 +13,11 @@ class App {
 
   setupMiddleware() {
     this.express.use(bodyParser.json());
-    this.express.set('sequelize', sequelize);
-    this.express.set('models', sequelize.models);
     this.express.use(helmet());
   }
 
   setupRoutes() {
-    this.express.use(contractRouter);
+    this.express.use(router);
   }
 }
 

@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
 const { sequelize } = require('../config/database');
-const Contract = require('./contract');
 
 class Profile extends Sequelize.Model {}
 Profile.init(
@@ -27,7 +26,7 @@ Profile.init(
   {
     sequelize,
     modelName: 'Profile',
-  },
+  }
 );
 
 Profile.associate = (models) => {

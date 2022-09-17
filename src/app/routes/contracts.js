@@ -1,9 +1,10 @@
 const { Router } = require('express');
-const { ContractController } = require('../controller/contracts');
+const ContractsController = require('../modules/contract/contractsController');
 
 const contractRouter = new Router();
 
-contractRouter.use('/contracts/:id', new ContractController().getContractById);
+contractRouter.use('/contracts/:id', ContractsController.getContractById);
+contractRouter.use('/contracts', ContractsController.listUnterminatedContractsToProfile);
 
 module.exports = {
   contractRouter,

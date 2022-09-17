@@ -1,6 +1,5 @@
 const { Sequelize } = require('sequelize');
 const { sequelize } = require('../config/database');
-const Contract = require('./contract');
 
 class Job extends Sequelize.Model {}
 Job.init(
@@ -24,7 +23,7 @@ Job.init(
   {
     sequelize,
     modelName: 'Job',
-  },
+  }
 );
 
 Job.associate = (models) => {
