@@ -1,5 +1,7 @@
-const { getUnterminatedContractsToProfile } = require('./contractRepository');
-const getContractByIdUseCase = require('./useCases/getContractById');
+const { getContractByIdUseCase } = require('./useCases/getContractById');
+const {
+  listUnterminatedContractToProfile,
+} = require('./useCases/listUnterminatedContractToProfile');
 
 const getContractById = async (req, res) => {
   const { id: profileId } = req.profile;
@@ -14,7 +16,7 @@ const getContractById = async (req, res) => {
 const listUnterminatedContractsToProfile = async (req, res) => {
   const { id: profileId } = req.profile;
 
-  const contracts = await getUnterminatedContractsToProfile(profileId);
+  const contracts = await listUnterminatedContractToProfile(profileId);
 
   return res.json(contracts);
 };
